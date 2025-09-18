@@ -1,0 +1,8 @@
+
+class HybridMapMarker: HybridMapMarkerSpec {
+    var latitude: Double = 0.0
+    
+    var longitude: Double = 0.0
+    
+    var view: UIView = .init()
+}

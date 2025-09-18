@@ -15,8 +15,10 @@
 #include <fbjni/fbjni.h>
 #include <NitroModules/HybridObjectRegistry.hpp>
 
-#include "JHybridKartaSpec.hpp"
-#include "views/JHybridKartaStateUpdater.hpp"
+#include "JHybridMapMarkerSpec.hpp"
+#include "views/JHybridMapMarkerStateUpdater.hpp"
+#include "JHybridMapViewSpec.hpp"
+#include "views/JHybridMapViewStateUpdater.hpp"
 #include <NitroModules/DefaultConstructableObject.hpp>
 
 namespace margelo::nitro::karta {
@@ -28,14 +30,24 @@ int initialize(JavaVM* vm) {
 
   return facebook::jni::initialize(vm, [] {
     // Register native JNI methods
-    margelo::nitro::karta::JHybridKartaSpec::registerNatives();
-    margelo::nitro::karta::views::JHybridKartaStateUpdater::registerNatives();
+    margelo::nitro::karta::JHybridMapMarkerSpec::registerNatives();
+    margelo::nitro::karta::views::JHybridMapMarkerStateUpdater::registerNatives();
+    margelo::nitro::karta::JHybridMapViewSpec::registerNatives();
+    margelo::nitro::karta::views::JHybridMapViewStateUpdater::registerNatives();
 
     // Register Nitro Hybrid Objects
     HybridObjectRegistry::registerHybridObjectConstructor(
-      "Karta",
+      "MapView",
       []() -> std::shared_ptr<HybridObject> {
-        static DefaultConstructableObject<JHybridKartaSpec::javaobject> object("com/karta/HybridKarta");
+        static DefaultConstructableObject<JHybridMapViewSpec::javaobject> object("com/karta/HybridMapView");
+        auto instance = object.create();
+        return instance->cthis()->shared();
+      }
+    );
+    HybridObjectRegistry::registerHybridObjectConstructor(
+      "MapMarker",
+      []() -> std::shared_ptr<HybridObject> {
+        static DefaultConstructableObject<JHybridMapMarkerSpec::javaobject> object("com/karta/HybridMapMarker");
         auto instance = object.create();
         return instance->cthis()->shared();
       }

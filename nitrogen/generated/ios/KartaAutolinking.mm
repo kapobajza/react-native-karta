@@ -10,7 +10,8 @@
 #import "Karta-Swift-Cxx-Umbrella.hpp"
 #import <type_traits>
 
-#include "HybridKartaSpecSwift.hpp"
+#include "HybridMapViewSpecSwift.hpp"
+#include "HybridMapMarkerSpecSwift.hpp"
 
 @interface KartaAutolinking : NSObject
 @end
@@ -22,9 +23,16 @@
   using namespace margelo::nitro::karta;
 
   HybridObjectRegistry::registerHybridObjectConstructor(
-    "Karta",
+    "MapView",
     []() -> std::shared_ptr<HybridObject> {
-      std::shared_ptr<HybridKartaSpec> hybridObject = Karta::KartaAutolinking::createKarta();
+      std::shared_ptr<HybridMapViewSpec> hybridObject = Karta::KartaAutolinking::createMapView();
+      return hybridObject;
+    }
+  );
+  HybridObjectRegistry::registerHybridObjectConstructor(
+    "MapMarker",
+    []() -> std::shared_ptr<HybridObject> {
+      std::shared_ptr<HybridMapMarkerSpec> hybridObject = Karta::KartaAutolinking::createMapMarker();
       return hybridObject;
     }
   );

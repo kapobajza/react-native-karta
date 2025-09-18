@@ -8,12 +8,25 @@
 #pragma once
 
 // Forward declarations of C++ defined types
-// Forward declaration of `HybridKartaSpec` to properly resolve imports.
-namespace margelo::nitro::karta { class HybridKartaSpec; }
+// Forward declaration of `HybridMapMarkerSpec` to properly resolve imports.
+namespace margelo::nitro::karta { class HybridMapMarkerSpec; }
+// Forward declaration of `HybridMapViewSpec` to properly resolve imports.
+namespace margelo::nitro::karta { class HybridMapViewSpec; }
+// Forward declaration of `MapViewChildProps` to properly resolve imports.
+namespace margelo::nitro::karta { struct MapViewChildProps; }
+// Forward declaration of `MapViewChildren` to properly resolve imports.
+namespace margelo::nitro::karta { struct MapViewChildren; }
 
 // Include C++ defined types
-#include "HybridKartaSpec.hpp"
+#include "HybridMapMarkerSpec.hpp"
+#include "HybridMapViewSpec.hpp"
+#include "MapViewChildProps.hpp"
+#include "MapViewChildren.hpp"
 #include <memory>
+#include <optional>
+#include <string>
+#include <variant>
+#include <vector>
 
 // C++ helpers for Swift
 #include "Karta-Swift-Cxx-Bridge.hpp"
@@ -25,8 +38,10 @@ namespace margelo::nitro::karta { class HybridKartaSpec; }
 #include <NitroModules/DateToChronoDate.hpp>
 
 // Forward declarations of Swift defined types
-// Forward declaration of `HybridKartaSpec_cxx` to properly resolve imports.
-namespace Karta { class HybridKartaSpec_cxx; }
+// Forward declaration of `HybridMapMarkerSpec_cxx` to properly resolve imports.
+namespace Karta { class HybridMapMarkerSpec_cxx; }
+// Forward declaration of `HybridMapViewSpec_cxx` to properly resolve imports.
+namespace Karta { class HybridMapViewSpec_cxx; }
 
 // Include Swift defined types
 #if __has_include("Karta-Swift.h")

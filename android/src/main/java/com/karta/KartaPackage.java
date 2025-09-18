@@ -32,7 +32,8 @@ public class KartaPackage extends TurboReactPackage {
   @Override
   public List<ViewManager> createViewManagers(@NonNull ReactApplicationContext reactContext) {
     List<ViewManager> viewManagers = new ArrayList<>();
-    viewManagers.add(new HybridKartaManager());
+    viewManagers.add(new MapViewManager());
+    viewManagers.add(new HybridMapMarkerManager());
     return viewManagers;
   }
 

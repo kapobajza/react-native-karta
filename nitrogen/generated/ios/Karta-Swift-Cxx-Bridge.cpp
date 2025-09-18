@@ -8,24 +8,41 @@
 #include "Karta-Swift-Cxx-Bridge.hpp"
 
 // Include C++ implementation defined types
-#include "HybridKartaSpecSwift.hpp"
+#include "HybridMapMarkerSpecSwift.hpp"
+#include "HybridMapViewSpecSwift.hpp"
 #include "Karta-Swift-Cxx-Umbrella.hpp"
 
 namespace margelo::nitro::karta::bridge::swift {
 
-  // pragma MARK: std::shared_ptr<HybridKartaSpec>
-  std::shared_ptr<HybridKartaSpec> create_std__shared_ptr_HybridKartaSpec_(void* _Nonnull swiftUnsafePointer) noexcept {
-    Karta::HybridKartaSpec_cxx swiftPart = Karta::HybridKartaSpec_cxx::fromUnsafe(swiftUnsafePointer);
-    return std::make_shared<margelo::nitro::karta::HybridKartaSpecSwift>(swiftPart);
+  // pragma MARK: std::shared_ptr<HybridMapMarkerSpec>
+  std::shared_ptr<HybridMapMarkerSpec> create_std__shared_ptr_HybridMapMarkerSpec_(void* _Nonnull swiftUnsafePointer) noexcept {
+    Karta::HybridMapMarkerSpec_cxx swiftPart = Karta::HybridMapMarkerSpec_cxx::fromUnsafe(swiftUnsafePointer);
+    return std::make_shared<margelo::nitro::karta::HybridMapMarkerSpecSwift>(swiftPart);
   }
-  void* _Nonnull get_std__shared_ptr_HybridKartaSpec_(std__shared_ptr_HybridKartaSpec_ cppType) noexcept {
-    std::shared_ptr<margelo::nitro::karta::HybridKartaSpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::karta::HybridKartaSpecSwift>(cppType);
+  void* _Nonnull get_std__shared_ptr_HybridMapMarkerSpec_(std__shared_ptr_HybridMapMarkerSpec_ cppType) noexcept {
+    std::shared_ptr<margelo::nitro::karta::HybridMapMarkerSpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::karta::HybridMapMarkerSpecSwift>(cppType);
     #ifdef NITRO_DEBUG
     if (swiftWrapper == nullptr) [[unlikely]] {
-      throw std::runtime_error("Class \"HybridKartaSpec\" is not implemented in Swift!");
+      throw std::runtime_error("Class \"HybridMapMarkerSpec\" is not implemented in Swift!");
     }
     #endif
-    Karta::HybridKartaSpec_cxx& swiftPart = swiftWrapper->getSwiftPart();
+    Karta::HybridMapMarkerSpec_cxx& swiftPart = swiftWrapper->getSwiftPart();
+    return swiftPart.toUnsafe();
+  }
+  
+  // pragma MARK: std::shared_ptr<HybridMapViewSpec>
+  std::shared_ptr<HybridMapViewSpec> create_std__shared_ptr_HybridMapViewSpec_(void* _Nonnull swiftUnsafePointer) noexcept {
+    Karta::HybridMapViewSpec_cxx swiftPart = Karta::HybridMapViewSpec_cxx::fromUnsafe(swiftUnsafePointer);
+    return std::make_shared<margelo::nitro::karta::HybridMapViewSpecSwift>(swiftPart);
+  }
+  void* _Nonnull get_std__shared_ptr_HybridMapViewSpec_(std__shared_ptr_HybridMapViewSpec_ cppType) noexcept {
+    std::shared_ptr<margelo::nitro::karta::HybridMapViewSpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::karta::HybridMapViewSpecSwift>(cppType);
+    #ifdef NITRO_DEBUG
+    if (swiftWrapper == nullptr) [[unlikely]] {
+      throw std::runtime_error("Class \"HybridMapViewSpec\" is not implemented in Swift!");
+    }
+    #endif
+    Karta::HybridMapViewSpec_cxx& swiftPart = swiftWrapper->getSwiftPart();
     return swiftPart.toUnsafe();
   }
 

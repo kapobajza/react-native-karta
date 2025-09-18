@@ -8,16 +8,31 @@
 #pragma once
 
 // Forward declarations of C++ defined types
-// Forward declaration of `HybridKartaSpec` to properly resolve imports.
-namespace margelo::nitro::karta { class HybridKartaSpec; }
+// Forward declaration of `HybridMapMarkerSpec` to properly resolve imports.
+namespace margelo::nitro::karta { class HybridMapMarkerSpec; }
+// Forward declaration of `HybridMapViewSpec` to properly resolve imports.
+namespace margelo::nitro::karta { class HybridMapViewSpec; }
+// Forward declaration of `MapViewChildProps` to properly resolve imports.
+namespace margelo::nitro::karta { struct MapViewChildProps; }
+// Forward declaration of `MapViewChildren` to properly resolve imports.
+namespace margelo::nitro::karta { struct MapViewChildren; }
 
 // Forward declarations of Swift defined types
-// Forward declaration of `HybridKartaSpec_cxx` to properly resolve imports.
-namespace Karta { class HybridKartaSpec_cxx; }
+// Forward declaration of `HybridMapMarkerSpec_cxx` to properly resolve imports.
+namespace Karta { class HybridMapMarkerSpec_cxx; }
+// Forward declaration of `HybridMapViewSpec_cxx` to properly resolve imports.
+namespace Karta { class HybridMapViewSpec_cxx; }
 
 // Include C++ defined types
-#include "HybridKartaSpec.hpp"
+#include "HybridMapMarkerSpec.hpp"
+#include "HybridMapViewSpec.hpp"
+#include "MapViewChildProps.hpp"
+#include "MapViewChildren.hpp"
 #include <memory>
+#include <optional>
+#include <string>
+#include <variant>
+#include <vector>
 
 /**
  * Contains specialized versions of C++ templated types so they can be accessed from Swift,
@@ -25,16 +40,98 @@ namespace Karta { class HybridKartaSpec_cxx; }
  */
 namespace margelo::nitro::karta::bridge::swift {
 
-  // pragma MARK: std::shared_ptr<HybridKartaSpec>
+  // pragma MARK: std::shared_ptr<HybridMapMarkerSpec>
   /**
-   * Specialized version of `std::shared_ptr<HybridKartaSpec>`.
+   * Specialized version of `std::shared_ptr<HybridMapMarkerSpec>`.
    */
-  using std__shared_ptr_HybridKartaSpec_ = std::shared_ptr<HybridKartaSpec>;
-  std::shared_ptr<HybridKartaSpec> create_std__shared_ptr_HybridKartaSpec_(void* _Nonnull swiftUnsafePointer) noexcept;
-  void* _Nonnull get_std__shared_ptr_HybridKartaSpec_(std__shared_ptr_HybridKartaSpec_ cppType) noexcept;
+  using std__shared_ptr_HybridMapMarkerSpec_ = std::shared_ptr<HybridMapMarkerSpec>;
+  std::shared_ptr<HybridMapMarkerSpec> create_std__shared_ptr_HybridMapMarkerSpec_(void* _Nonnull swiftUnsafePointer) noexcept;
+  void* _Nonnull get_std__shared_ptr_HybridMapMarkerSpec_(std__shared_ptr_HybridMapMarkerSpec_ cppType) noexcept;
   
-  // pragma MARK: std::weak_ptr<HybridKartaSpec>
-  using std__weak_ptr_HybridKartaSpec_ = std::weak_ptr<HybridKartaSpec>;
-  inline std__weak_ptr_HybridKartaSpec_ weakify_std__shared_ptr_HybridKartaSpec_(const std::shared_ptr<HybridKartaSpec>& strong) noexcept { return strong; }
+  // pragma MARK: std::weak_ptr<HybridMapMarkerSpec>
+  using std__weak_ptr_HybridMapMarkerSpec_ = std::weak_ptr<HybridMapMarkerSpec>;
+  inline std__weak_ptr_HybridMapMarkerSpec_ weakify_std__shared_ptr_HybridMapMarkerSpec_(const std::shared_ptr<HybridMapMarkerSpec>& strong) noexcept { return strong; }
+  
+  // pragma MARK: std::optional<std::string>
+  /**
+   * Specialized version of `std::optional<std::string>`.
+   */
+  using std__optional_std__string_ = std::optional<std::string>;
+  inline std::optional<std::string> create_std__optional_std__string_(const std::string& value) noexcept {
+    return std::optional<std::string>(value);
+  }
+  inline bool has_value_std__optional_std__string_(const std::optional<std::string>& optional) noexcept {
+    return optional.has_value();
+  }
+  inline std::string get_std__optional_std__string_(const std::optional<std::string>& optional) noexcept {
+    return *optional;
+  }
+  
+  // pragma MARK: std::vector<MapViewChildren>
+  /**
+   * Specialized version of `std::vector<MapViewChildren>`.
+   */
+  using std__vector_MapViewChildren_ = std::vector<MapViewChildren>;
+  inline std::vector<MapViewChildren> create_std__vector_MapViewChildren_(size_t size) noexcept {
+    std::vector<MapViewChildren> vector;
+    vector.reserve(size);
+    return vector;
+  }
+  
+  // pragma MARK: std::variant<MapViewChildren, std::vector<MapViewChildren>>
+  /**
+   * Wrapper struct for `std::variant<MapViewChildren, std::vector<MapViewChildren>>`.
+   * std::variant cannot be used in Swift because of a Swift bug.
+   * Not even specializing it works. So we create a wrapper struct.
+   */
+  struct std__variant_MapViewChildren__std__vector_MapViewChildren__ {
+    std::variant<MapViewChildren, std::vector<MapViewChildren>> variant;
+    std__variant_MapViewChildren__std__vector_MapViewChildren__(std::variant<MapViewChildren, std::vector<MapViewChildren>> variant): variant(variant) { }
+    operator std::variant<MapViewChildren, std::vector<MapViewChildren>>() const noexcept {
+      return variant;
+    }
+    inline size_t index() const noexcept {
+      return variant.index();
+    }
+    inline MapViewChildren get_0() const noexcept {
+      return std::get<0>(variant);
+    }
+    inline std::vector<MapViewChildren> get_1() const noexcept {
+      return std::get<1>(variant);
+    }
+  };
+  inline std__variant_MapViewChildren__std__vector_MapViewChildren__ create_std__variant_MapViewChildren__std__vector_MapViewChildren__(const MapViewChildren& value) noexcept {
+    return std__variant_MapViewChildren__std__vector_MapViewChildren__(value);
+  }
+  inline std__variant_MapViewChildren__std__vector_MapViewChildren__ create_std__variant_MapViewChildren__std__vector_MapViewChildren__(const std::vector<MapViewChildren>& value) noexcept {
+    return std__variant_MapViewChildren__std__vector_MapViewChildren__(value);
+  }
+  
+  // pragma MARK: std::optional<std::variant<MapViewChildren, std::vector<MapViewChildren>>>
+  /**
+   * Specialized version of `std::optional<std::variant<MapViewChildren, std::vector<MapViewChildren>>>`.
+   */
+  using std__optional_std__variant_MapViewChildren__std__vector_MapViewChildren___ = std::optional<std::variant<MapViewChildren, std::vector<MapViewChildren>>>;
+  inline std::optional<std::variant<MapViewChildren, std::vector<MapViewChildren>>> create_std__optional_std__variant_MapViewChildren__std__vector_MapViewChildren___(const std::variant<MapViewChildren, std::vector<MapViewChildren>>& value) noexcept {
+    return std::optional<std::variant<MapViewChildren, std::vector<MapViewChildren>>>(value);
+  }
+  inline bool has_value_std__optional_std__variant_MapViewChildren__std__vector_MapViewChildren___(const std::optional<std::variant<MapViewChildren, std::vector<MapViewChildren>>>& optional) noexcept {
+    return optional.has_value();
+  }
+  inline std::variant<MapViewChildren, std::vector<MapViewChildren>> get_std__optional_std__variant_MapViewChildren__std__vector_MapViewChildren___(const std::optional<std::variant<MapViewChildren, std::vector<MapViewChildren>>>& optional) noexcept {
+    return *optional;
+  }
+  
+  // pragma MARK: std::shared_ptr<HybridMapViewSpec>
+  /**
+   * Specialized version of `std::shared_ptr<HybridMapViewSpec>`.
+   */
+  using std__shared_ptr_HybridMapViewSpec_ = std::shared_ptr<HybridMapViewSpec>;
+  std::shared_ptr<HybridMapViewSpec> create_std__shared_ptr_HybridMapViewSpec_(void* _Nonnull swiftUnsafePointer) noexcept;
+  void* _Nonnull get_std__shared_ptr_HybridMapViewSpec_(std__shared_ptr_HybridMapViewSpec_ cppType) noexcept;
+  
+  // pragma MARK: std::weak_ptr<HybridMapViewSpec>
+  using std__weak_ptr_HybridMapViewSpec_ = std::weak_ptr<HybridMapViewSpec>;
+  inline std__weak_ptr_HybridMapViewSpec_ weakify_std__shared_ptr_HybridMapViewSpec_(const std::shared_ptr<HybridMapViewSpec>& strong) noexcept { return strong; }
 
 } // namespace margelo::nitro::karta::bridge::swift

@@ -1,24 +1,22 @@
 {
   "$schema": "https://nitro.margelo.com/nitro.schema.json",
-  "cxxNamespace": [
-    "karta"
-  ],
+  "cxxNamespace": ["karta"],
   "ios": {
     "iosModuleName": "Karta"
   },
   "android": {
-    "androidNamespace": [
-      "karta"
-    ],
+    "androidNamespace": ["karta"],
     "androidCxxLibName": "Karta"
   },
   "autolinking": {
-    "Karta": {
-      "swift": "HybridKarta",
-      "kotlin": "HybridKarta"
+    "MapView": {
+      "swift": "HybridMapView",
+      "kotlin": "HybridMapView"
+    },
+    "MapMarker": {
+      "swift": "HybridMapMarker",
+      "kotlin": "HybridMapMarker"
     }
   },
-  "ignorePaths": [
-    "**/node_modules"
-  ]
+  "ignorePaths": ["**/node_modules"]
 }

@@ -33,11 +33,16 @@ target_sources(
   # Autolinking Setup
   ../nitrogen/generated/android/KartaOnLoad.cpp
   # Shared Nitrogen C++ sources
-  ../nitrogen/generated/shared/c++/HybridKartaSpec.cpp
-  ../nitrogen/generated/shared/c++/views/HybridKartaComponent.cpp
+  ../nitrogen/generated/shared/c++/HybridMapMarkerSpec.cpp
+  ../nitrogen/generated/shared/c++/views/HybridMapMarkerComponent.cpp
+  ../nitrogen/generated/shared/c++/HybridMapViewSpec.cpp
+  ../nitrogen/generated/shared/c++/views/HybridMapViewComponent.cpp
   # Android-specific Nitrogen C++ sources
-  ../nitrogen/generated/android/c++/JHybridKartaSpec.cpp
-  ../nitrogen/generated/android/c++/views/JHybridKartaStateUpdater.cpp
+  ../nitrogen/generated/android/c++/JHybridMapMarkerSpec.cpp
+  ../nitrogen/generated/android/c++/views/JHybridMapMarkerStateUpdater.cpp
+  ../nitrogen/generated/android/c++/JHybridMapViewSpec.cpp
+  ../nitrogen/generated/android/c++/JVariant_MapViewChildren_Array_MapViewChildren_.cpp
+  ../nitrogen/generated/android/c++/views/JHybridMapViewStateUpdater.cpp
 )
 
 # From node_modules/react-native/ReactAndroid/cmake-utils/folly-flags.cmake

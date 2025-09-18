@@ -1,0 +1,13 @@
+{
+  "uiViewClassName": "MapView",
+  "supportsRawText": false,
+  "bubblingEventTypes": {},
+  "directEventTypes": {},
+  "validAttributes": {
+    "latitude": true,
+    "longitude": true,
+    "zoom": true,
+    "children": true,
+    "hybridRef": true
+  }
+}
